@@ -11,6 +11,9 @@ class Portfolio(models.Model):
     title = models.CharField(max_length=255)
     img = models.ImageField(upload_to='portfolio/')
 
+    def __str__(self):
+        return self.title
+
 
 class Team(models.Model):
     name = models.CharField(max_length=255)
@@ -18,11 +21,17 @@ class Team(models.Model):
     user_img = models.ImageField(upload_to='team/')
     username = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Message(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=13)
     about_project = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Vacancy(models.Model):
@@ -38,3 +47,6 @@ class Vacancy(models.Model):
     fullname = models.CharField(max_length=255)
     phone = models.CharField(max_length=13)
     resume = models.FileField(upload_to='vacancy/')
+
+    def __str__(self):
+        return self.name
